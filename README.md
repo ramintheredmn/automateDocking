@@ -8,7 +8,7 @@ place the main.py in the directory like this
   | main.py
 
 
-each dock_* file should contain r.gpf r.glg r.dpf l.pdbgt r.pdbqt 
+each dock_* folder should contain r.gpf r.glg r.dpf l.pdbgt r.pdbqt 
 
 if you saved the files mentioned above with another name change that part of the main.py
 
