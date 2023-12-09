@@ -8,7 +8,8 @@ place the main.py in the directory like this
   | main.py
 
 
-each dock_* folder should contain r.gpf r.glg r.dpf l.pdbgt r.pdbqt 
+each dock_* folder should contain r.gpf r.glg r.dpf l.pdbgt r.pdbqt and if you dont have autodock and autogrid in PATH, place their executable files in each folde (windows os)
+  * in linux and unix like operationg systems autodock 4 and autogrid are in path if installed before
 
 if you saved the files mentioned above with another names change the corresponding parts of the main.py
 
