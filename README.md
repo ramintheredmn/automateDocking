@@ -1,6 +1,6 @@
 place the main.py in the directory like this
 
-- main directory
+--- main directory ----
   | +dock_1 
   | +dock_2
   | +dock_3
