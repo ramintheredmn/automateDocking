@@ -5,10 +5,13 @@ from concurrent.futures import ProcessPoolExecutor
 def run_autodock_for_directory(directory):
     base_directory = "."
     os.chdir(os.path.join(base_directory, directory))
-    print(f"Running autogrid and autodock for {directory}")
-    subprocess.run("autogrid4 -p r.gpf -l r.glg", shell=True, check=True)
+    if not os.path.exists('r.glg'):
+        print(f"Running autogrid and autodock for {directory}")
+        subprocess.run("autogrid4 -p r.gpf -l r.glg", shell=True, check=True)
+    else:
+        print('r.glg was already there')
     
-    if os.path.exists('r.glg'):
+    if os.path.exists('r.glg') and not os.path.exists('r.dlg'):
         print(f"'r.glg' created in {directory}")
         subprocess.run("autodock4 -p r.dpf -l r.dlg", shell=True, check=True)
         print(f"Autodock finished for {directory}")
@@ -27,7 +30,10 @@ def run(n):
 
 def main():
     s_run_number = int(input("Enter the number of parallel runs, consider your CPU cores do not exceed n-1, where n is the number of cores: "))
-    run(s_run_number)
+    try:
+        run(s_run_number)
+    except Exception as e:
+        print(str(e))
 
 if __name__ == "__main__":
     main()
